@@ -2,8 +2,7 @@ import React from "react";
 import ButtonWrapper from "../Buttons/spotlightButton";
 import Button from '@mui/material/Button';
 import {Link} from "react-router-dom";
-import SearchField from "../input/searchbar";
-import {SwipeCarousel} from "./carasoul";
+
 
 
 class Header extends React.Component<any, any>{
@@ -11,7 +10,7 @@ class Header extends React.Component<any, any>{
     render() {
         return(
             <header>
-                <nav className={'flex justify-between items-center  p-1 '}>
+                <nav className={'flex justify-between items-center  p-1 border-cyan-300 shadow-xl bg-[#cbd5e1] '}>
 
                 <span className={'flex items-center'}>
                 <img className={'w-[100px] ml-5'} src="src/assets/Logo.png" alt="Logo"/>
