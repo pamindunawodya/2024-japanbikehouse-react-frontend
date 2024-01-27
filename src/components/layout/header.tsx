@@ -1,6 +1,9 @@
 import React from "react";
 import ButtonWrapper from "../Buttons/spotlightButton";
 import Button from '@mui/material/Button';
+import {Link} from "react-router-dom";
+import SearchField from "../input/searchbar";
+import {SwipeCarousel} from "./carasoul";
 
 
 class Header extends React.Component<any, any>{
@@ -19,13 +22,15 @@ class Header extends React.Component<any, any>{
                     <ul className={'flex gap-[2vw]  text-2xl '}>
                         <li> <Button className={'RegisterBtn w-[125px] h-[55px]'} variant="outlined" color="error" >Register</Button></li>
                         <li className={'pt-1 '}><div className={'lineOne'}></div></li>
-                        <li> <Button className={'signinBtn  w-[125px] h-[55px]'} variant="contained" color="success">Sign in</Button></li>
+                        <li> <Link to={"/signin"}><Button className={'signinBtn  w-[125px] h-[55px]'} variant="contained" color="success">Sign in</Button></Link></li>
                         <li> <ButtonWrapper/></li>
 
 
                     </ul>
                 </nav>
             </header>
+
+
 
         );
         

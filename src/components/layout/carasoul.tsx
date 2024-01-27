@@ -3,10 +3,9 @@ import { motion, useMotionValue } from "framer-motion";
 
 const imgs = [
     "src/assets/banners/welnessBannerFinal.jpg",
-    "src/assets/banners/ircsl-banner2.jpg",
-    "src/assets/banners/mediagallery_banner.png",
+    "src/assets/banners/Mobitel_Data-Bundles_Web-banner_0.jpg",
     "src/assets/banners/GR_Typographic-Oscar-Film-Posters_Banner_828x300.jpg",
-    "src/assets/banners/Bed-Room-Set-01-Banner.png",
+    "src/assets/banners/dialog.jpg",
 
 ];
 

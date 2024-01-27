@@ -1,5 +1,8 @@
 import React from "react";
 import AddCard from "../components/card/AddCard";
+import SearchField from "../components/input/searchbar";
+import {SwipeCarousel} from "../components/layout/carasoul";
+import SkipPages from "../components/Buttons/skip.page.bar";
 
 
 
@@ -30,14 +33,18 @@ class Home extends React.Component<any, any>{
     render() {
         return(
             <section>
-                <div
-                className={' '}>
+                <SwipeCarousel/>
+                <SearchField/>
+                <div className={' '}>
                     {
+
                         data.map((s,index)=>{
                             return <AddCard title={s.title} location={s.location}  price={s.price} millage={s.millage}  imageUrl={s.imageUrl}/>
+
                         })
                     }
                 </div>
+            <SkipPages/>
             </section>
         );
     }
