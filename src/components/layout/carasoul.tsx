@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
 
 const imgs = [
+    "src/assets/banners/caltext.png",
     "src/assets/banners/welnessBannerFinal.jpg",
     "src/assets/banners/Mobitel_Data-Bundles_Web-banner_0.jpg",
-    "src/assets/banners/GR_Typographic-Oscar-Film-Posters_Banner_828x300.jpg",
     "src/assets/banners/dialog.jpg",
+    "src/assets/banners/cargills.jpg"
+   
 
 ];
 
@@ -53,7 +55,7 @@ export const SwipeCarousel = () => {
     };
 
     return (
-        <div className="relative overflow-hidden bg-neutral-950 py-2">
+        <div className=" overflow-hidden  py-2 mt-12  ">
             <motion.div
                 drag="x"
                 dragConstraints={{
@@ -90,12 +92,13 @@ const Images = ({ imgIndex }) => {
                             backgroundImage: `url(${imgSrc})`,
                             backgroundSize: "cover",
                             backgroundPosition: "center",
+                            
                         }}
                         animate={{
                             scale: imgIndex === idx ? 0.95 : 0.85,
                         }}
                         transition={SPRING_OPTIONS}
-                        className="aspect-video w-[100%] h-[350px] shrink-0 rounded-xl bg-neutral-500 object-cover"
+                        className="aspect-video w-[100%] h-[350px] shrink-0  bg-neutral-500 "
                     />
                 );
             })}
@@ -124,8 +127,8 @@ const Dots = ({ imgIndex, setImgIndex }) => {
 const GradientEdges = () => {
     return (
         <>
-            <div className="pointer-events-none absolute bottom-0 left-0 top-0 w-[10vw] max-w-[10px] bg-gradient-to-r from-neutral-950/50 to-neutral-950/0" />
-            <div className="pointer-events-none absolute bottom-0 right-0 top-0 w-[10vw] max-w-[10px] bg-gradient-to-l from-neutral-950/50 to-neutral-950/0" />
+           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-b from-white to-transparent"></div>
+           <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-t from-white to-transparent"></div>
         </>
     );
 };

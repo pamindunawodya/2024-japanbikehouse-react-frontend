@@ -4,7 +4,7 @@
 
 @layer components {
     .main-btn {
-        @apply bg-green-600 text-white px-5 py-3 hover:bg-green-400
+        @apply bg-[#0652DD] text-white px-5 py-3 hover:bg-[#12CBC4]
     }
 
     .second-btn {
@@ -19,7 +19,7 @@
 }
 .lineOne{
   width:1px;
-  height: 50px;
+  height: 40px;
     background-color: black;
 }
 

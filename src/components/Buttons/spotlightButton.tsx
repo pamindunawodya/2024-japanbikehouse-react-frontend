@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 
 const ButtonWrapper = () => {
     return (
-        <div className="flex min-h-[20px] items-center justify-center  px-4">
+        <div className="flex min-h-[2px] items-center justify-center  px-4">
 
             <SpotlightButton />
         </div>
@@ -27,7 +27,7 @@ const SpotlightButton = () => {
 
         const handleMouseLeave = () => {
             spanRef.current.animate(
-                { left: "50%" },
+                { left: "100%" },
                 { duration: 100, fill: "forwards" }
             );
         };
@@ -45,7 +45,7 @@ const SpotlightButton = () => {
         <motion.button
             whileTap={{ scale: 0.985 }}
             ref={btnRef}
-            className="relative w-full max-w-xs overflow-hidden rounded-lg bg-slate-950 px-4 py-3 text-lg font-medium text-white"
+            className="relative w-full max-w-xs overflow-hidden rounded-lg bg-yellow-400 px-1 py-2 text-sm font-medium text-white"
         >
       <span className="pointer-events-none relative z-10 mix-blend-difference">
         Free Post Add

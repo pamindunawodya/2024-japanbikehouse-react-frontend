@@ -24,7 +24,7 @@ class Input extends React.Component<Props, any> {
             type={this.props.type}
             id={this.props.name}
             placeholder={this.props.placeholder}
-            className={'block border border-green-300 outline-none focus:border-green-600 h-10 w-full'}
+            className={'block border border-[#0fbcf9] outline-none focus:border-[#0652DD] h-10 w-full'}
             onChange={e => this.props.callBack(e, this.props.name)}
             value={this.props.value}
         />

@@ -1,8 +1,11 @@
 import React, {useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import Input from "../components/input/input";
-import Signup from "./signup";
 import * as validator from "../util/validator"
+import axios from "axios";
+import config from "tailwindcss/defaultConfig";
+import Cookies from 'js-cookie';
+import Swal from "sweetalert2";
 
 
 interface state{
@@ -32,23 +35,63 @@ function Login():JSX.Element{
         }
     }
 
-    const handleLogin =():void=>{
-        let isValidInputs=true;
-        let errorMsg="";
+    const handleLogin =():void=> {
+        let isValidInputs = true;
+        let errorMsg = "";
 
-        if(!validator.validateEmail(email)){
+        if (!validator.validateEmail(email)) {
             //error
-            errorMsg=">Invalid Email";
+            errorMsg = ">Invalid Email";
         }
-        if (!validator.validatePassword(password)){
+        if (!validator.validatePassword(password)) {
             //error
-            errorMsg=errorMsg+">Invalid Password";
+            errorMsg = errorMsg + ">Invalid Password";
+        }
+        if (isValidInputs) {
+            const config = {
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            };
+            let body = JSON.stringify({
+                email: email,
+                password: password
+            })
+
+            console.log(body);
+
+            axios.post("http://localhost:8085/user/auth", body, config)
+                .then(r => {
+                    console.log("send data")
+                    console.log(r.data.data.user);
+                    console.log(r.data.data.accessToken);
+                    
+//                     Cookies.set("token", r.data.data.accessToken);
+                 Cookies.set("user", JSON.stringify(r.data.data.user));
+                Cookies.set("token", JSON.stringify(r.data.data.accessToken));
+                Cookies.set("userId", JSON.stringify(r.data.data.user._id));
+        
+                   navigate("/") 
+
+                })
+                .catch(e => {
+                console.log(e);
+                    Swal.fire({
+                        icon:"error",
+                        title:"Sorry!",
+                        text:"Something went wrong"
+
+                    });
+                })
+        }else {
+            setErrorMsg(errorMsg);
+
         }
     }
 
     return (
 
-        <section className={'flex justify-center items-center p-5'}>
+        <section className={'flex justify-center items-center p-5 mt-24'}>
             <div className={'w-fit p-24 border shadow-xl rounded-xl'}>
 
                 <img src="src/assets/Logo.png" title="logo" alt="logo" className={'object-contain h-48 w-96'}/>
